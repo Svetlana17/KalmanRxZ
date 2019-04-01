@@ -26,30 +26,10 @@ public class MathActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-//            case R.id.line_gyroscope:
-//                state = "gyroscope";
-//                Intent intent = new Intent(MathActivity.this,GyroscopeActivity.class);
-//                startActivity(intent);
-//                return true;
-//
-//            case R.id.line_accelerometr:
-//                state = "accelerometr";
-//                return true;
-
             case R.id.line_accelerometr_geroscope:
                 Intent i = new Intent(MathActivity.this, MainActivity.class);
                 startActivity(i);
                 return true;
-//            case R.id.record:
-//                state="record";
-//                Intent is = new Intent(MainActivity.this,RecordActivity.class);
-//                startActivity(is);
-//                return true;
-//            case R.id.main:
-//                Intent main=new Intent(MainActivity.this, ActivityView.class);
-//                startActivity(main);
-
-
             default:
                 return true;
         }

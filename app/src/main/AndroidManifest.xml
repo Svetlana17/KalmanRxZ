@@ -9,7 +9,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Math.MathActivity"></activity>
+        <activity android:name=".ui.LowPassFiltrActivity"></activity>
+        <activity android:name=".Math.MathActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

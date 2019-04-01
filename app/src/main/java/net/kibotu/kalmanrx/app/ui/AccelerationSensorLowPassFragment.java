@@ -15,7 +15,8 @@ public class AccelerationSensorLowPassFragment extends AccelerationSensorFragmen
 
     @Override
     protected Subscription createSensorSubscription() {
-        return KalmanRx.createLowPassFilter(SensorEventObservableFactory
+        SensorEventObservableFactory sensorEventObservableFactory= new SensorEventObservableFactory();
+        return KalmanRx.createLowPassFilter(sensorEventObservableFactory
                 .createSensorEventObservable(sensorType(), sensorDelay())
                 .map(e -> e.values))
                 .subscribe(this::process, Throwable::printStackTrace);

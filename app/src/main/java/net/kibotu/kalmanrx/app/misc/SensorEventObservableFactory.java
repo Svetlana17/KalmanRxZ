@@ -16,8 +16,8 @@ import static net.kibotu.android.deviceinfo.library.services.SystemService.getSe
  * Liberated: https://github.com/ArkadyGamza/ShakeDetector/tree/master/app/src/main/java/com/arkadygamza/shakedetector
  */
 public class SensorEventObservableFactory {
-
-    public static Observable<SensorEvent> createSensorEventObservable(int sensorType, @SensorDelay int sensorDelay) {
+  public SensorEvent lastevent;
+    public  Observable<SensorEvent> createSensorEventObservable(int sensorType, @SensorDelay int sensorDelay) {
         return Observable.create(subscriber -> {
             MainThreadSubscription.verifyMainThread();
 
@@ -27,7 +27,7 @@ public class SensorEventObservableFactory {
                     if (subscriber.isUnsubscribed()) {
                         return;
                     }
-
+       lastevent=event;
                     subscriber.onNext(event);
                 }
 

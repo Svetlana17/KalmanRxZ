@@ -98,7 +98,9 @@ public abstract class SensorValueFragment extends Fragment implements LayoutProv
     }
 
     protected Subscription createSensorSubscription() {
-        return SensorEventObservableFactory
+        SensorEventObservableFactory factory=new SensorEventObservableFactory();
+
+        return factory
                 .createSensorEventObservable(sensorType(), sensorDelay())
                 .subscribe(sensorEvent -> process(sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2]), Throwable::printStackTrace);
     }
@@ -119,4 +121,11 @@ public abstract class SensorValueFragment extends Fragment implements LayoutProv
     public String tag() {
         return getClass().getSimpleName();
     }
+
+    public  void start(){
+        subscribeSensor();
+    };
+    public  void stop(){
+        unsubscribe();
+    };
 }
